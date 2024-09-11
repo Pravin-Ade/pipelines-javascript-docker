@@ -8,6 +8,7 @@ variables:
   imageName: 'pipelines-javascript-docker'
 
 steps:
+# this is job name
  - task: Docker@2
    displayName: Build an image
    inputs:
