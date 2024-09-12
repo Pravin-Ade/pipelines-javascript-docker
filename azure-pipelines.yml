@@ -1,19 +1,18 @@
 trigger:
- - main
+- feature-1
 
-pool:
-  vmImage: 'ubuntu-latest'
+stages:
+- stage: Build # This is the name of the stage
+  displayName: 'Build Stage' # This is a human-readable name for the stage
 
-variables:
-  imageName: 'pipelines-javascript-docker'
+  jobs:
+  - job: BuildJob # this is the name of the job
+    displayName: 'Build Job' # This is a friendly name for the job,
 
-steps:
-# this is job name
- - task: Docker@2
-   displayName: Build an image
-   inputs:
-    repository: $(imageName)
-    command: build
-    Dockerfile: app/Dockerfile
-
-     
+    steps: # Steps are individual tasks or commands executed as part of a job
+    - script: | # This block contains shell commands
+        echo "Building the project..."
+        # # Add your build commands here
+        # mkdir $(Build.ArtifactStagingDirectory)
+        # echo "Sample Build Output" > $(Build.ArtifactStagingDirectory)/output.txt
+      displayName: 'Build project' #his is a name for this specific step
