@@ -1,0 +1,58 @@
+trigger:
+- feature-1
+
+stages:
+- stage: Build # This is the name of the stage
+  displayName: 'Build Stage' # This is a human-readable name for the stage
+
+  jobs:
+  - job: BuildJob # this is the name of the job
+    displayName: 'Build Job' # This is a friendly name for the job,
+
+    steps: # Steps are individual tasks or commands executed as part of a job
+    - script: | # This block contains shell commands
+        echo "Building the project..."
+        # # Add your build commands here
+        # mkdir $(Build.ArtifactStagingDirectory)
+        # echo "Sample Build Output" > $(Build.ArtifactStagingDirectory)/output.txt
+      displayName: 'Build project' #his is a name for this specific step
+      
+#     - task: PublishPipelineArtifact@1
+#       inputs:
+#         targetPath: '$(Build.ArtifactStagingDirectory)'
+#         artifact: 'drop'
+#         publishLocation: 'pipeline'
+#       displayName: 'Publish Build Artifacts'
+
+# - stage: Test
+#   displayName: 'Test Stage'
+#   dependsOn: Build
+#   condition: succeeded('Build')
+#   jobs:
+#   - job: TestJob
+#     displayName: 'Test Job'
+#     steps:
+#     - script: |
+#         echo "Running tests..."
+#         # Add your test commands here
+#       displayName: 'Run Tests'
+
+# - stage: Deploy
+#   displayName: 'Deploy Stage'
+#   dependsOn: Test
+#   condition: succeeded('Test')
+#   jobs:
+#   - job: DeployJob
+#     displayName: 'Deploy Job'
+#     steps:
+#     - task: DownloadPipelineArtifact@2
+#       inputs:
+#         artifactName: 'drop'
+#         downloadPath: '$(Pipeline.Workspace)'
+#       displayName: 'Download Build Artifacts'
+      
+#     - script: |
+#         echo "Deploying the project..."
+#         cat $(Pipeline.Workspace)/drop/output.txt
+#         # Add your deployment commands here
+#       displayName: 'Deploy Project'
