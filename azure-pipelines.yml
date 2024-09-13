@@ -17,6 +17,7 @@ steps:
 #     Dockerfile: app/Dockerfile
 
  - task: Docker@2
+# this is a job name
    displayName: Buils and push image
    inputs:
      containerRegistry: 'azure-docker-conn'
