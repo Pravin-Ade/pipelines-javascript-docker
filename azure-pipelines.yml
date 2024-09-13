@@ -17,9 +17,10 @@ steps:
 #     Dockerfile: app/Dockerfile
 
  - task: Docker@2
+   displayName: Buils and push image
    inputs:
      containerRegistry: 'azure-docker-conn'
-     repository: 'sewalal/myimg'
+     repository: 'sewalal/myimg:1.0'
      command: 'buildAndPush'
      Dockerfile: 'app/Dockerfile'
      buildContext: 'app'
