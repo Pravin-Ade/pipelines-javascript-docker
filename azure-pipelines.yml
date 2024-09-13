@@ -9,12 +9,12 @@ variables:
 
 steps:
 # this is job name
- - task: Docker@2
-   displayName: Build an image
-   inputs:
-    repository: $(imageName)
-    command: build
-    Dockerfile: app/Dockerfile
+#  - task: Docker@2
+#    displayName: Build an image
+#    inputs:
+#     repository: $(imageName)
+#     command: build
+#     Dockerfile: app/Dockerfile
 
  - task: Docker@2
    inputs:
