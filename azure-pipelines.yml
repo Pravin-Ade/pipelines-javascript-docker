@@ -24,4 +24,5 @@ steps:
      repository: 'sewalal/myimg'
      command: 'buildAndPush'
      Dockerfile: 'app/Dockerfile'
+     tags: '0.1.0'
      buildContext: 'app'
